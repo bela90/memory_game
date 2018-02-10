@@ -63,6 +63,7 @@ let timerStarted = false;
 
 let timer;
 
+
  
 
 $(".card").click(function() {
@@ -82,6 +83,12 @@ $(".card").click(function() {
     console.log(currentCard);
 
     clickCounter++;
+
+    starRating();
+
+    $('.moves').html(clickCounter);
+
+
 
 
     if ((clickCounter % 2) === 0) {
@@ -145,6 +152,21 @@ function startTimer(){
 
 }
 
+
+function starRating(){
+    if(clickCounter === 5){
+        $('.stars > li:nth-child(3)').html('<i class="fa fa-star-o"></i>');
+    }
+
+    if(clickCounter === 10){
+        $('.stars > li:nth-child(2)').html('<i class="fa fa-star-o"></i>');
+    }
+
+    if(clickCounter === 15){
+        $('.stars > li:nth-child(1)').html('<i class="fa fa-star-o"></i>');
+    }
+
+}
 
 
 
