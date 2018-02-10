@@ -59,9 +59,21 @@ let openCards = [];
 
 let clickCounter = 0;
 
+let timerStarted = false; 
+
+let timer;
+
+ 
+
 $(".card").click(function() {
 
     const currentCard = $(this);
+
+    if (timerStarted === false){
+      startTimer();
+      timerStarted = true;
+    }
+    
     
 
     currentCard.addClass("open show");
@@ -90,6 +102,8 @@ $(".card").click(function() {
         else if ((previousCard.prop('innerHTML')) == (currentCard.prop('innerHTML'))) {
             
             if (openCards.length === 16){
+                clearInterval(timer);
+
                 setTimeout(function(){
 
                 alert ("Congratulations!");
@@ -111,5 +125,29 @@ $(".card").click(function() {
     }
 
 
-
 });
+
+
+function startTimer(){
+
+        var sec = 0;
+        
+        function pad ( val ) { 
+
+            return val > 9 ? val : "0" + val; 
+        }
+
+        timer = setInterval( function(){
+            $("#seconds").html(pad(++sec%60));
+            $("#minutes").html(pad(parseInt(sec/60,10)));
+    
+        }, 1000);
+
+}
+
+
+
+
+
+
+
