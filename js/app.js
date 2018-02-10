@@ -17,7 +17,8 @@ let cards = $(".card");
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -34,12 +35,12 @@ shuffle(cards);
 
 let newCardsHtml = "";
 
-$('.restart').click(function(){
-	location.reload();
+$('.restart').click(function() {
+    location.reload();
 });
 
-for (const item of cards){
-	newCardsHtml += $(item).prop('outerHTML');
+for (const item of cards) {
+    newCardsHtml += $(item).prop('outerHTML');
 }
 
 $('.deck').html(newCardsHtml);
@@ -56,25 +57,59 @@ $('.deck').html(newCardsHtml);
 
 let openCards = [];
 
-$(".card").click(function(){
-    $(this).addClass("open show");
-    openCards.push($(this));
+let clickCounter = 0;
+
+$(".card").click(function() {
+
+    const currentCard = $(this);
+    
+
+    currentCard.addClass("open show");
+    openCards.push(currentCard);
+
+    console.log(currentCard);
+
+    clickCounter++;
+
+
+    if ((clickCounter % 2) === 0) {
+
+        const previousCard = $(openCards[openCards.length - 2]);
+
+        console.log(previousCard);
+        console.log(currentCard);
+
+        if (previousCard.is(currentCard)) {
+            
+            currentCard.toggleClass("open show");
+
+            openCards.pop();
+            openCards.pop();
+        }
+
+        else if ((previousCard.prop('innerHTML')) == (currentCard.prop('innerHTML'))) {
+            
+            if (openCards.length === 16){
+                setTimeout(function(){
+
+                alert ("Congratulations!");
+            },300);
+            }
+
+        } else{
+           
+            setTimeout(function(){
+                currentCard.toggleClass("open show");
+                previousCard.toggleClass("open show");
+
+                openCards.pop();
+                openCards.pop();
+            },400);
+        }
+
+        console.log("Kliknuto je " + clickCounter);
+    }
+
+
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
