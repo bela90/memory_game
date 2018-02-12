@@ -1,20 +1,25 @@
-# Memory Game Project
+# Memory Game 
 
-## Table of Contents
+Memory game (also known as Concentration) is a card matching game in which all cards are hidden and player has to 
+clicks on cards to find the same pair of cards. 
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+More detail instructions:
+
+* The player flips first card on click to see symbol of the first card
+* The player clicks on the second card to compare if they are the same
+* If they are, bith cards will remain open 
+* If cards doesn't match, both cards will flipped face down
+* The game will also tracking time, number of moves and star rating
+* When all cards are matched, congratulation window will pop up 
+
+
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Game is implemented in JavaScript and styled with HTML and CSS. 
 
-To get started, open `js/app.js` and start building out the app's functionality
+To open and play game follow this [link](https://bela90.github.io/memory_game/).
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
