@@ -107,3 +107,12 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.moves{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#minutes{
+    padding-left: 15px;
+}
