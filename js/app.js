@@ -30,16 +30,12 @@ $(".card").click(function() {
 
     const currentCard = $(this);
 
-    clickCounter++;
 
     // starting timer on first click 
     if (timerStarted === false){
       startTimer();
       timerStarted = true;
     }
-
-    //update number of moves
-    $('.moves').html(clickCounter);
 
     starRating();
     
@@ -71,8 +67,11 @@ $(".card").click(function() {
         //if cards matched
         else if ((previousCard.prop('innerHTML')) == (currentCard.prop('innerHTML'))) {
 
+            clickCounter++;
+
             currentCard.addClass("matched");
             previousCard.addClass("matched");
+
             
             if (openCards.length === 16){
 
@@ -99,10 +98,13 @@ $(".card").click(function() {
                 openCards.pop();
                 
             },400);
+
+            clickCounter++;
         }
     }
+    //update number of moves
+    $('.moves').html(clickCounter);
 });
-
 
 // reload function
 $('.restart').click(function() {
@@ -151,18 +153,13 @@ function startTimer(){
 // Star Rating function that depending on number of moves, updates score of users
 function starRating(){
 
-    if(clickCounter === 40){
+    if(clickCounter === 20){
         $('.stars > li:nth-child(3)').html('<i class="fa fa-star-o"></i>');
         --starsNumber;
     }
 
-    if(clickCounter === 45){
+    if(clickCounter === 30){
         $('.stars > li:nth-child(2)').html('<i class="fa fa-star-o"></i>');
-        --starsNumber;
-    }
-
-    if(clickCounter === 50){
-        $('.stars > li:nth-child(1)').html('<i class="fa fa-star-o"></i>');
         --starsNumber;
     }
 }
