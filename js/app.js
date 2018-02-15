@@ -58,12 +58,10 @@ $(".card").click(function() {
 
         //if player clicks on same cards, close them and remove from openCards 
         if (previousCard.is(currentCard)) {
-            
-            currentCard.toggleClass("open show");
 
             openCards.pop();
-            openCards.pop();
         }
+
         //if cards matched
         else if ((previousCard.prop('innerHTML')) == (currentCard.prop('innerHTML'))) {
 
@@ -153,14 +151,13 @@ function startTimer(){
 // Star Rating function that depending on number of moves, updates score of users
 function starRating(){
 
-    if(clickCounter === 20){
+    if(clickCounter === 15){
         $('.stars > li:nth-child(3)').html('<i class="fa fa-star-o"></i>');
         --starsNumber;
     }
 
-    if(clickCounter === 30){
+    if(clickCounter === 20){
         $('.stars > li:nth-child(2)').html('<i class="fa fa-star-o"></i>');
-        --starsNumber;
     }
 }
 
